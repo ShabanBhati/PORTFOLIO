@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaban Bhati - Web Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #6a057e; /* Deep Purple */
+        --secondary-color: #892cdc; /* Medium Purple */
+        --accent-color: #bc6ff1; /* Light Purple */
+        --text-color-dark: #333;
+        --text-color-light: #f4f4f4;
+        --bg-light: #fdfdff;
+        --bg-dark: #2c3e50;
+        --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        --border-radius-large: 15px;
+        --border-radius-small: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-color-dark);
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: var(--text-color-light);
+        padding: 3rem 1rem;
+        text-align: center;
+        box-shadow: var(--card-shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        transform: rotate(45deg);
+      }
+
+      header h1 {
+        font-size: 3.2rem;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        animation: fadeInDown 1s ease-out;
+      }
+
+      header p.tagline {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      nav {
+        margin-top: 1.5rem;
+      }
+
+      nav a {
+        color: var(--text-color-light);
+        margin: 0 1.2rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-small);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      nav a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-3px);
+        text-decoration: none;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      section {
+        margin-bottom: 4rem;
+        padding: 2.5rem;
+        background: white;
+        border-radius: var(--border-radius-large);
+        box-shadow: var(--card-shadow);
+        transition: all 0.3s ease;
+      }
+
+      section:hover {
+        transform: translateY(-5px);
+      }
+
+      h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.8rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        width: 60px;
+        height: 4px;
+        background: var(--accent-color);
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1.5rem;
+        border: 6px solid var(--secondary-color);
+        box-shadow: 0 0 0 8px rgba(var(--secondary-color), 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .about-img:hover {
+        transform: scale(1.05) rotate(3deg);
+      }
+
+      .about-content p {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project {
+        background: white;
+        padding: 1.8rem;
+        border-radius: var(--border-radius-large);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .project img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: var(--border-radius-small);
+        margin-bottom: 1.2rem;
+        background-color: #e0e0e0;
+        border: 1px solid #eee;
+      }
+
+      .project h3 {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+      }
+
+      .project p {
+        font-size: 1rem;
+        color: #666;
+        flex-grow: 1; /* Allows description to take up available space */
+      }
+
+      .project p strong {
+        color: var(--secondary-color);
+      }
+
+      .contact-info {
+        text-align: center;
+        font-size: 1.15rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 1rem;
+      }
+
+      .contact-info a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      .contact-info .icon {
+        margin-right: 10px;
+        color: var(--primary-color);
+        font-size: 1.3rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2.5rem;
+        background-color: var(--bg-dark);
+        color: var(--text-color-light);
+        margin-top: 5rem;
+        font-size: 0.95rem;
+        border-top: 5px solid var(--primary-color);
+      }
+
+      /* Animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+        header p.tagline {
+          font-size: 1rem;
+        }
+        nav a {
+          display: block;
+          margin: 0.7rem auto;
+          padding: 0.7rem 1.5rem;
+          max-width: 180px;
+        }
+        main {
+          margin: 2rem auto;
+          padding: 0 1rem;
+        }
+        section {
+          padding: 1.8rem;
+          margin-bottom: 3rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        .about-img {
+          width: 140px;
+          height: 140px;
+          border-width: 4px;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .project {
+          padding: 1.5rem;
+        }
+        .project img {
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 2rem 0.5rem;
+        }
+        header h1 {
+          font-size: 2rem;
+        }
+        nav a {
+          font-size: 0.9rem;
+          margin: 0.5rem auto;
+        }
+        section {
+          padding: 1rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        .about-img {
+          width: 120px;
+          height: 120px;
+        }
+        .about-content p {
+          font-size: 0.95rem;
+        }
+        .project h3 {
+          font-size: 1.4rem;
+        }
+        .project p {
+          font-size: 0.9rem;
+        }
+        .contact-info {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Shaban Bhati</h1>
+      <p class="tagline">
+        Passionate Web Developer | Crafting Digital Experiences
+      </p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <img src="image shaban.jpg" alt="Shaban Bhati" class="about-img" />
+          <p>
+            Hey there! 👋 My name is Shaban Bhati, and I'm an enthusiastic and
+            aspiring web developer on a mission to build engaging and functional
+            digital experiences. I've gained hands-on expertise in core web
+            technologies like HTML, CSS, and JavaScript, and I'm
+            proficient with modern front-end frameworks, especially React.
+            My journey also includes delving into back-end development with
+            Node.js and managing databases using MySQL.
+          </p>
+          <p>
+            I thrive on turning ideas into interactive websites and am
+            constantly exploring how different technologies can seamlessly
+            integrate. Each project I undertake is a valuable learning
+            opportunity, reinforcing my understanding and pushing me to master
+            new skills. I'm passionate about creating responsive designs that
+            look great on any device and am always eager to contribute to
+            innovative web solutions.
+          </p>
+        </div>
+      </section>
+
+      ---
+
+      <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+          <div class="project">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Netflix-new-icon.png"
+              alt="Netflix Clone"
+            />
+            <h3>Netflix Clone 🎬</h3>
+            <p>
+              This project is a detailed replication of the Netflix user
+              interface, meticulously crafted using HTML and CSS. It
+              showcases my ability to create complex layouts, apply
+              sophisticated styling, and ensure responsive design across various
+              screen sizes. Building this clone significantly enhanced my
+              understanding of UI/UX principles and efficient front-end
+              structuring.
+            </p>
+            <p><strong>Technologies:</strong> HTML, CSS</p>
+          </div>
+
+          <div class="project">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+              alt="Interactive To-Do App"
+            />
+            <h3>Interactive To-Do App ✅</h3>
+            <p>
+              A dynamic To-Do List application built with React. This
+              project demonstrates my proficiency in managing state, handling
+              user input, and implementing component-based architecture. It
+              includes features like adding, deleting, and marking tasks as
+              complete, providing a smooth and intuitive user experience.
+            </p>
+            <p><strong>Technologies:</strong> React, JavaScript, CSS</p>
+          </div>
+
+          <div class="project">
+            <img
+              src="https://www.mysql.com/common/logos/logo-mysql-170x115.png"
+              alt="Simple Blog Backend"
+            />
+            <h3>Simple Blog Backend 📝</h3>
+            <p>
+              Developed a basic backend for a blog application using Node.js
+              and Express.js, with MySQL as the database. This project
+              involved setting up API endpoints for creating, reading, updating,
+              and deleting blog posts, showcasing my ability to handle
+              server-side logic and database interactions.
+            </p>
+            <p><strong>Technologies:</strong> Node.js, Express.js, MySQL</p>
+          </div>
+        </div>
+      </section>
+
+      ---
+
+      <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+          <p>
+            <i class="fas fa-envelope icon"></i> Email:
+            <a href="mailto:iambhati77@gmail.com">iambhati77@gmail.com</a>
+          </p>
+          <p>
+            <i class="fab fa-linkedin icon"></i> LinkedIn:
+            <a
+              href="https://www.linkedin.com/in/shaban-bhati-a68aba300"
+              target="_blank"
+              >shaban-bhati-a68aba300</a
+            >
+          </p>
+          <p>
+            <i class="fab fa-github icon"></i> GitHub:
+            <a href="https://github.com/ShabanBhati" target="_blank"
+              >github.com/ShabanBhati</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Shaban Bhati. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
